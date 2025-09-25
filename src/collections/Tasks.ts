@@ -2,7 +2,7 @@ import type { CollectionConfig } from 'payload'
 
 export const Tasks: CollectionConfig = {
   slug: 'tasks',
-  auth: true,
+  auth: false,
   access: {
     read: () => true,
     create: () => true,
@@ -38,6 +38,6 @@ export const Tasks: CollectionConfig = {
       name: 'assignee',
       type: 'relationship',
       relationTo: 'users',
-    }
+    },
   ],
 }

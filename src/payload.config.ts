@@ -12,15 +12,15 @@ import { Media } from './collections/Media'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+const rootDir = path.resolve(dirname, '..', '..')
+const defaultSQLiteFile = path.join(rootDir, 'jb-everblue-practical.db')
+const databaseUrl = process.env.DATABASE_URI || `file:${defaultSQLiteFile}`
 
 export default buildConfig({
   admin: {
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
-    },
-    components: {
-      beforeDashboard: ['@/components/BeforeDashboard'],
     },
   },
   collections: [Users, Media],
@@ -31,7 +31,7 @@ export default buildConfig({
   },
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URI || '',
+      url: databaseUrl,
     },
   }),
   sharp,

@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import React from 'react'
 
@@ -112,7 +112,9 @@ export default function NewTaskSheet() {
           )}
 
           <div className="grid gap-2">
-            <label className="text-sm font-medium" htmlFor="title">Title</label>
+            <label className="text-sm font-medium" htmlFor="title">
+              Title
+            </label>
             <Input
               id="title"
               placeholder="e.g., Finish quarterly report"
@@ -123,7 +125,9 @@ export default function NewTaskSheet() {
           </div>
 
           <div className="grid gap-2">
-            <label className="text-sm font-medium" htmlFor="description">Description</label>
+            <label className="text-sm font-medium" htmlFor="description">
+              Description
+            </label>
             <Textarea
               id="description"
               placeholder="Add some details..."
@@ -135,7 +139,9 @@ export default function NewTaskSheet() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <label className="text-sm font-medium" htmlFor="dueDate">Due Date</label>
+              <label className="text-sm font-medium" htmlFor="dueDate">
+                Due Date
+              </label>
               <Input
                 id="dueDate"
                 type="date"
@@ -160,7 +166,9 @@ export default function NewTaskSheet() {
           </div>
 
           <div className="grid gap-2">
-            <label className="text-sm font-medium" htmlFor="assignee">Assignee User ID (optional)</label>
+            <label className="text-sm font-medium" htmlFor="assignee">
+              Assignee User ID (optional)
+            </label>
             <Input
               id="assignee"
               placeholder="Enter a user ID"
@@ -179,5 +187,3 @@ export default function NewTaskSheet() {
     </Sheet>
   )
 }
-
-

@@ -1,6 +1,6 @@
 import { headers as getHeaders } from 'next/headers.js'
 import { getPayload } from 'payload'
-import React from 'react'
+import React, { useState } from 'react'
 
 import config from '@/payload.config'
 import './styles.css'
@@ -12,12 +12,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import TaskView from '@/components/TaskView'
 
 export default async function HomePage() {
   const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
   const { user } = await payload.auth({ headers })
+
+  const sortBy = 'Title'
 
   console.log(user)
 
@@ -31,7 +34,7 @@ export default async function HomePage() {
           <p className="text-lg">Because every good app name ends in an r</p>
         </div>
         <div className="mt-5 flex lg:mt-0 lg:ml-4 gap-2">
-          <Select>
+          <Select /*onValueChange={(v) => (sortBy = v)}*/>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Sort" />
             </SelectTrigger>
@@ -44,9 +47,10 @@ export default async function HomePage() {
           <NewTaskSheet />
         </div>
       </div>
-      <div>
-        {/* tasks go here */}
+      <div className="flex flex-col py-4">
+        <TaskView sort={sortBy}></TaskView>
       </div>
+      <div>{/* tasks go here */}</div>
     </div>
   )
 }

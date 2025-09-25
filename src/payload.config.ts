@@ -22,9 +22,6 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    components: {
-      beforeDashboard: ['@/components/BeforeDashboard'],
-    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
